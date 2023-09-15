@@ -24,7 +24,7 @@ export const addLSP = async (req, res) => {
       .then(() => {
         res.status(200).json({
           message: "successfully registered",
-          details: user,
+          details: lawyer,
         });
       })
       .catch((err) => {
