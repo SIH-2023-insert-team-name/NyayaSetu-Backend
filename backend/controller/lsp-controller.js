@@ -52,3 +52,13 @@ export const getLSP=async(req,res)=>{
       res.status(500).json(error)
   }
 }
+
+export const fetchLSP=async(req,res)=>{
+  try {
+    const lawyer = await Lawyer.findById(req.params.id);
+
+    res.status(200).json(lawyer);
+} catch (error) {
+    res.status(500).json(error)
+}
+}
