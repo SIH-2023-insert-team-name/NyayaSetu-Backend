@@ -1,14 +1,15 @@
 import User from "../model/User.js";
 import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
+// import bcrypt from "bcrypt";
 
 export const login = async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
     if (!user) res.status(404).json("User not found");
 
-    const checkPass = await bcrypt.compare(req.body.password, user.password);
-    if (!checkPass) res.status(400).json("Wrong Password");
+    // const checkPass = await bcrypt.compare(req.body.password, user.password);
+
+    if (req.body.password != user.password) res.status(400).json("Wrong Password");
 
     const token = jwt.sign(
       {
@@ -20,23 +21,25 @@ export const login = async (req, res) => {
         expiresIn: "1h",
       }
     );
+    console.log(token)
     return res.status(200).json({
       message: "Auth successful",
       token: token,
     });
   } catch (error) {
+    console.log(error)
     res.status(500).json(error);
   }
 };
 
 export const register = async (req, res) => {
-  const salt = await bcrypt.genSalt(10);
-  const hashedPass = await bcrypt.hash(req.body.password, salt);
+  // const salt = await bcrypt.genSalt(10);
+  // const hashedPass = await bcrypt.hash(req.body.password, salt);
 
   const user = await new User({
     username: req.body.username,
     email: req.body.email,
-    password: hashedPass,
+    password: req.body.password,
   });
 
   await user
