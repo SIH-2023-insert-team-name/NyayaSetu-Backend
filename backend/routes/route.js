@@ -8,7 +8,7 @@ import { addClient } from "../controller/client-controller.js";
 const Router=express.Router();
 
 // Authenticate login
-Router.get("/authenticate", login);
+Router.post("/authenticate", login);
 // Register
 Router.post("/register", register);
 // add Legal Service Provider LSP
