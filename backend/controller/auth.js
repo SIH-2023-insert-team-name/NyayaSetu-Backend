@@ -21,7 +21,6 @@ export const login = async (req, res) => {
         expiresIn: "1h",
       }
     );
-    console.log(token)
     return res.status(200).json({
       message: "Auth successful",
       token: token,
