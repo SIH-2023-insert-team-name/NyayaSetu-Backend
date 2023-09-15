@@ -7,7 +7,6 @@ const lawyerSchema = mongoose.Schema(
       require: true,
       
     },
-
     email:{
         type:String,
         require:true,
@@ -54,9 +53,6 @@ const lawyerSchema = mongoose.Schema(
     rating:{
         type:Number
     }
-
-
-    
   },
   {
     timestamps: true,

@@ -1,14 +1,25 @@
-import User from "../model/User.js";
+import Lawyer from "../model/lawyer.js";
 
 export const addLSP = async (req, res) => {
   try {
-    const user = await new User({
+    const lawyer = await new Lawyer({
       username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
+      email: req.userData.email,
+      aadhar: req.body.aadhar,
+      profile_pic: req.body.profile_pic,
+      serial_no: req.body.serial_no,
+      enrollment_no: req.body.enrollment_no,
+      gender: req.body.gender,
+      age: req.body.age,
+      summary: req.body.summary,
+      category: req.body.category,
+      experience: req.body.experience,
+      cost: req.body.cost,
+      points: req.body.points,
+      rating: req.body.rating,
     });
 
-    await user
+    await lawyer
       .save()
       .then(() => {
         res.status(200).json({

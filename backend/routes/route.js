@@ -11,7 +11,7 @@ Router.get("/authenticate", login);
 // Register
 Router.post("/register", register);
 // add Legal Service Provider LSP
-Router.post("/add/lsp", addLSP)
+Router.post("/add/lsp", checkAuth, addLSP)
 
 
 export default Router;
