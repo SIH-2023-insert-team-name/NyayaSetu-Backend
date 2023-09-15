@@ -13,10 +13,26 @@ const clientSchema = mongoose.Schema(
         require:true,
         unique: true,
     },
+    legal_needs:{
+         type:String,
+         require:true
+    },
+    preferred_language:{
+        type:String
+    },
     aadhar:{
         type:String,
         require:true,
         unique: true,
+    },
+    budget:{
+        type:Number
+    },
+    availability:{
+       type:String
+    },
+    experience:{
+         type:Number
     },
     gender:{
         type: String,
