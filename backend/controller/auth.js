@@ -21,6 +21,7 @@ export const login = async (req, res) => {
         expiresIn: "1h",
       }
     );
+    console.log(user)
     return res.status(200).json({
       message: "Auth successful",
       isLSP: user.isLSP,
@@ -40,6 +41,7 @@ export const register = async (req, res) => {
     username: req.body.username,
     email: req.body.email,
     password: req.body.password,
+    isLSP: req.body.isLSP
   });
 
   await user

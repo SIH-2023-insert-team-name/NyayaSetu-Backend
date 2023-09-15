@@ -18,7 +18,7 @@ const userScheme = mongoose.Schema(
       min: 7,
     },
     isLSP:{
-      type: Boolean,
+      type: Number,
       require: true,
     },
     profilePicture: {
