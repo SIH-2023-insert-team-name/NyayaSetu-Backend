@@ -1,27 +1,39 @@
 import mongoose from "mongoose";
 
-const userSchema=mongoose.Schema({
-    name:{
-        type:String
+const userScheme = mongoose.Schema(
+  {
+    username: {
+      type: String,
+      require: true,
+      unique: true,
     },
-   
-    email:{
-        type:String,
-        required:true
+    email: {
+      type: String,
+      required: true,
+      unique: true,
     },
-   
-    email_verified:{
-        type:Boolean
+    password: {
+      type: String,
+      require: true,
+      min: 7,
     },
-    body :{
-        type:String
-    }
-    
-},
-{
-    timestamps:true
-});
+    profilePicture: {
+      type: String,
+      default: "",
+    },
+    followers: {
+      type: Array,
+      default: [],
+    },
+    following: {
+      type: Array,
+      default: [],
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-const user=mongoose.model('user',userSchema);
-
-export default user;
+const User = mongoose.model("User", userScheme);
+export default User

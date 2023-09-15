@@ -1,13 +1,14 @@
-import express from 'express';
-import { addUser,getUsers } from '../controller/user-controller.js';
+import express from "express";
+import checkAuth from "../middleware/auth_user.js";
+import { login, register } from "../controller/auth.js";
+
+const Router=express.Router();
+
+// Authenticate login
+Router.post("/authenticate", login);
+
+// Register
+Router.get("/register", register);
 
 
-const route=express.Router();
-
-
-route.post('/add',addUser);
-route.get('/users',getUsers);
-
-
-
-export default route;
+export default Router;
