@@ -38,3 +38,17 @@ export const addLSP = async (req, res) => {
     res.status(500).json(error);
   }
 };
+
+
+
+
+export const getLSP=async(req,res)=>{
+  
+  try {
+    const lawyers=await Lawyer.find()
+    res.status(200).send(lawyers);
+     
+  } catch (error) {
+      res.status(500).json(error)
+  }
+}
