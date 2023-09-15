@@ -5,44 +5,43 @@ const clientSchema = mongoose.Schema(
     name: {
       type: String,
       require: true,
-      
     },
-    email:{
-        type:String,
-        require:true,
-        unique: true,
+    email: {
+      type: String,
+      require: true,
+      unique: true,
     },
-    legal_needs:{
-         type:String,
-         require:true
+    legal_needs: {
+      type: String,
+      require: true,
     },
-    preferred_language:{
-        type:String
+    preferred_language: {
+      type: String,
     },
-    aadhar:{
-        type:String,
-        require:true,
-        unique: true,
+    aadhar: {
+      type: String,
+      require: true,
+      unique: true,
     },
-    budget:{
-        type:Number
+    budget: {
+      type: Number,
     },
-    availability:{
-       type:String
+    availability: {
+      type: String,
     },
-    experience:{
-         type:Number
+    experience: {
+      type: Number,
     },
-    gender:{
-        type: String,
-        enum: ['male', 'female'],
+    gender: {
+      type: String,
+      enum: ["male", "female"],
     },
-    age:{
-       type:Number
+    age: {
+      type: Number,
     },
-    city:{
-        type:String
-    }
+    city: {
+      type: String,
+    },
   },
   {
     timestamps: true,
@@ -50,4 +49,4 @@ const clientSchema = mongoose.Schema(
 );
 
 const Client = mongoose.model("Client", clientSchema);
-export default Client
+export default Client;
