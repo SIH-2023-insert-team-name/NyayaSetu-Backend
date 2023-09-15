@@ -4,6 +4,7 @@ export const addLSP = async (req, res) => {
   try {
     const lawyer = await new Lawyer({
       username: req.body.username,
+      name:req.body.name,
       email: req.userData.email,
       aadhar: req.body.aadhar,
       profile_pic: req.body.profile_pic,
