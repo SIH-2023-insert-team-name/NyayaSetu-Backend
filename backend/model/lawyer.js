@@ -59,5 +59,5 @@ const lawyerSchema = mongoose.Schema(
   }
 );
 
-const Lawyer = mongoose.model("Lawyer", lawyerSchema);
+const Lawyer = mongoose.model("lawyer", lawyerSchema);
 export default Lawyer
