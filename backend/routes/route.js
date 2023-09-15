@@ -5,10 +5,10 @@ import { login, register } from "../controller/auth.js";
 const Router=express.Router();
 
 // Authenticate login
-Router.post("/authenticate", login);
+Router.get("/authenticate", login);
 
 // Register
-Router.get("/register", register);
+Router.post("/register", register);
 
 
 export default Router;
