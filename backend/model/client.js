@@ -7,7 +7,6 @@ const clientSchema = mongoose.Schema(
       require: true,
       
     },
-
     email:{
         type:String,
         require:true,
@@ -44,9 +43,6 @@ const clientSchema = mongoose.Schema(
     city:{
         type:String
     }
-
-
-    
   },
   {
     timestamps: true,

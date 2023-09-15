@@ -13,8 +13,6 @@ Router.get("/authenticate", login);
 Router.post("/register", register);
 // add Legal Service Provider LSP
 Router.post("/add/lsp", checkAuth, addLSP)
-
-
 //add client
 Router.post("/add/client",checkAuth,addClient)
 
