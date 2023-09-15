@@ -5,7 +5,12 @@ export const addClient = async (req, res) => {
     const client = await new Client({
       name: req.body.name,
       email: req.userData.email,
+      legal_needs:req.body.legal_needs,
+      preferred_language:req.body.preferred_language,
       aadhar: req.body.aadhar,
+      budget:req.body.budget,
+      availability:req.body.availability,
+      experience:req.body.experience,
       gender: req.body.gender,
       age: req.body.age,
       city: req.body.city,
