@@ -4,7 +4,7 @@ export const addLSP = async (req, res) => {
   try {
     const lawyer = await new Lawyer({
       username: req.body.username,
-      name:req.body.name,
+      name: req.body.name,
       email: req.userData.email,
       aadhar: req.body.aadhar,
       profile_pic: req.body.profile_pic,
@@ -52,8 +52,18 @@ export const getLSP = async (req, res) => {
 export const fetchLSP = async (req, res) => {
   try {
     const lawyer = await Lawyer.findById(req.params.id);
-
+    
     res.status(200).json(lawyer);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+export const altPoints = async (req, res) => {
+  try {
+    const lawyer = await Lawyer.findById(req.body.lawyerId);
+    lawyer.points = lawyer.points + req.body.points
+    lawyer.save().then(()=>{console.log("sucessfully altered")})
   } catch (error) {
     res.status(500).json(error);
   }

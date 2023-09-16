@@ -4,7 +4,7 @@ export const addReview = async (req, res) => {
   try {
     const review = await new Review({
       lawyer_email: req.body.lawyer_email,
-      client_email:req.body.client_email,
+      client_email:req.userData.email,
       text: req.body.text,
       rating: req.body.rating
     });
