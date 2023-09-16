@@ -3,6 +3,7 @@ import checkAuth from "../middleware/auth_user.js";
 import { login, register } from "../controller/auth.js";
 import { addLSP,getLSP,fetchLSP } from "../controller/lsp-controller.js";
 import { addClient } from "../controller/client-controller.js";
+import { addReview,getAllReviews } from "../controller/review-controller.js";
 
 
 const Router=express.Router();
@@ -21,5 +22,11 @@ Router.get("/get/lsp/:id",fetchLSP);
 //add client
 Router.post("/add/client",checkAuth,addClient)
 
+
+//post a review
+Router.post("/add/review",addReview)
+
+//get all reviews
+Router.get("/get/reviews",getAllReviews)
 
 export default Router;
