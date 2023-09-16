@@ -9,7 +9,8 @@ export const login = async (req, res) => {
 
     // const checkPass = await bcrypt.compare(req.body.password, user.password);
 
-    if (req.body.password != user.password) res.status(400).json("Wrong Password");
+    if (req.body.password != user.password)
+      res.status(400).json("Wrong Password");
 
     const token = jwt.sign(
       {
@@ -21,14 +22,14 @@ export const login = async (req, res) => {
         expiresIn: "1h",
       }
     );
-    console.log(user)
+    console.log(user);
     return res.status(200).json({
       message: "Auth successful",
       isLSP: user.isLSP,
       token: token,
     });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.status(500).json(error);
   }
 };
@@ -41,7 +42,7 @@ export const register = async (req, res) => {
     username: req.body.username,
     email: req.body.email,
     password: req.body.password,
-    isLSP: req.body.isLSP
+    isLSP: req.body.isLSP,
   });
 
   await user

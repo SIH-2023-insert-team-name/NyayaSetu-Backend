@@ -5,7 +5,6 @@ const reviewSchema = mongoose.Schema(
     lawyer_id: {
       type: String,
       require: true,
-      
     },
     client_id:{
     type:String,
@@ -14,14 +13,13 @@ const reviewSchema = mongoose.Schema(
     text: {
       type: String,
       required: true,
-      
     },
     rating: {
       type: Number,
       require: true,
       min: 1,
-      max:5
-    }
+      max: 5,
+    },
   },
   {
     timestamps: true,
@@ -29,4 +27,4 @@ const reviewSchema = mongoose.Schema(
 );
 
 const Review = mongoose.model("Review", reviewSchema);
-export default Review
+export default Review;

@@ -5,6 +5,6 @@ export const Connect = async (url) => {
     .connect(url, { useUnifiedTopology: true, useNewUrlParser: true })
     .then(console.log("connection success"))
     .catch((error) => {
-      console.log("error in db",error);
+      console.log("error in db", error);
     });
 };
