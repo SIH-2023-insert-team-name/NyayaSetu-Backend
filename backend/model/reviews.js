@@ -6,10 +6,6 @@ const reviewSchema = mongoose.Schema(
       type: String,
       require: true,
     },
-    client_id:{
-    type:String,
-    require:true
-    },
     text: {
       type: String,
       required: true,

@@ -21,13 +21,4 @@ Router.get("/get/lsp/:id", fetchLSP);
 //add client
 Router.post("/add/client", checkAuth, addClient);
 
-
-//post a review
-Router.post("/add/review",addReview)
-
-//get all reviews
-Router.get("/get/reviews",getAllReviews)
-
-
 export default Router;
-
