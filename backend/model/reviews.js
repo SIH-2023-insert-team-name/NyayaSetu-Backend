@@ -2,11 +2,11 @@ import mongoose from "mongoose";
 
 const reviewSchema = mongoose.Schema(
   {
-    lawyer_id: {
+    lawyer_email: {
       type: String,
       require: true,
     },
-    client_id:{
+    client_email:{
     type:String,
     require:true
     },
