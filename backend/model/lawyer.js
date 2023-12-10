@@ -52,6 +52,7 @@ const lawyerSchema = mongoose.Schema(
         "tax",
       ],
     },
+
     experience: {
       type: Number,
     },
@@ -75,6 +76,17 @@ const lawyerSchema = mongoose.Schema(
     },
     points: {
       type: Number,
+    },
+    incentive_level:{
+       type:String,
+       enum: [
+        "not applicable",
+        "silver",
+        "gold",
+        "platinum",
+        "premium"
+        
+      ],
     },
     rating: {
       type: Number,
