@@ -38,7 +38,7 @@ const lawyerSchema = mongoose.Schema(
     category: {
       type: String,
       enum: [
-        "criminal",
+        "bankruptcy",
         "business",
         "constitutional",
         "criminal defense",
@@ -54,6 +54,21 @@ const lawyerSchema = mongoose.Schema(
     },
     experience: {
       type: Number,
+    },
+    location:{
+       type:String,
+       require:true
+    },
+    availability:{
+       type:String,
+       enum: [
+        "Part-time",
+        "Full-time",
+        
+      ],
+    },
+    languages_spoken:{
+        type:Array
     },
     cost: {
       type: Number,

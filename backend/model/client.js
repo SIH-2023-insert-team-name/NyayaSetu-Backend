@@ -16,7 +16,7 @@ const clientSchema = mongoose.Schema(
       require: true,
     },
     preferred_language: {
-      type: String,
+      type: Array,
     },
     aadhar: {
       type: String,

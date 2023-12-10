@@ -4,8 +4,15 @@ import { login, register } from "../controller/auth.js";
 import { addLSP, getLSP, fetchLSP } from "../controller/lsp-controller.js";
 import { addClient } from "../controller/client-controller.js";
 import { addReview,getAllReviews } from "../controller/review-controller.js";
+import { checkConnection } from "../controller/connection-controller.js";
+
+
+import { updateLeaderboard,getLeaderboard } from "../controller/leaderboard-controller.js";
 
 const Router = express.Router();
+
+
+Router.get("/",checkConnection)
 
 // Authenticate login
 Router.post("/authenticate", login);
@@ -27,6 +34,13 @@ Router.post("/add/review",addReview)
 
 //get all reviews
 Router.get("/get/reviews",getAllReviews)
+
+
+
+//get updated leaderboard wrt descending order of points
+Router.get("/ranks",updateLeaderboard)
+//get the leaderboard rankings
+Router.get("/leaderboard",getLeaderboard)
 
 
 export default Router;
