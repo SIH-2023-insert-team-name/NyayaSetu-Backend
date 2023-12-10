@@ -27,7 +27,7 @@ const lawyerSchema = mongoose.Schema(
     },
     gender: {
       type: String,
-      enum: ["male", "female"],
+      enum: ["male", "female", "other"],
     },
     age: {
       type: Number,

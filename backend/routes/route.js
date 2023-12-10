@@ -1,7 +1,7 @@
 import express from "express";
 import checkAuth from "../middleware/auth_user.js";
 import { login, register } from "../controller/auth.js";
-import { addLSP, getLSP, fetchLSP } from "../controller/lsp-controller.js";
+import { addLSP, getLSP, fetchLSP, altPoints } from "../controller/lsp-controller.js";
 import { addClient } from "../controller/client-controller.js";
 import { addReview,getAllReviews } from "../controller/review-controller.js";
 import { checkConnection } from "../controller/connection-controller.js";
@@ -30,11 +30,12 @@ Router.post("/add/client", checkAuth, addClient);
 
 
 //post a review
-Router.post("/add/review",addReview)
+Router.post("/add/review",checkAuth, addReview)
 
 //get all reviews
-Router.get("/get/reviews",getAllReviews)
-
+Router.get("/get/reviews",checkAuth, getAllReviews)
+// Post increase points
+Router.post("/alt/points", altPoints)
 
 
 //get updated leaderboard wrt descending order of points
