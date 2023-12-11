@@ -15,8 +15,12 @@ export const addLSP = async (req, res) => {
       summary: req.body.summary,
       category: req.body.category,
       experience: req.body.experience,
+      location:req.body.location,
+      availability:req.body.availability,
+      languages_spoken:req.body.languages_spoken,
       cost: req.body.cost,
       points: req.body.points,
+      incentive_level:req.body.incentive_level,
       rating: req.body.rating,
     });
 
