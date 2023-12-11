@@ -44,5 +44,7 @@ Router.get("/ranks",updateLeaderboard)
 Router.get("/leaderboard",getLeaderboard)
 
 
+
+
 export default Router;
 

@@ -5,7 +5,20 @@ import random
 fake = Faker()
 
 # Sample categories
-categories = ["Legal", "Medical", "IT", "Finance", "Education"]
+categories =[
+        "bankruptcy",
+        "business",
+        "constitutional",
+        "criminal defense",
+        "employment and labour",
+        "entertainment",
+        "estate planning",
+        "family",
+        "immigration",
+        "intellectual property",
+        "personal injury",
+        "tax",
+      ]
 incentive_levels=["not applicable","gold","silver","platinum","premium"]
 availabilities=["Part-time","Full-time"]
 locations=["Delhi","Kolkata","Mumbai","Bangalore"]
