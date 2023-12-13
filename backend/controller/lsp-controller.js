@@ -1,4 +1,5 @@
 import Lawyer from "../model/lawyer.js";
+import fs from "fs"
 
 export const addLSP = async (req, res) => {
   try {
@@ -15,8 +16,12 @@ export const addLSP = async (req, res) => {
       summary: req.body.summary,
       category: req.body.category,
       experience: req.body.experience,
+      location: req.body.location,
+      availability: req.body.availability,
+      languages_spoken: req.body.languages_spoken,
       cost: req.body.cost,
       points: req.body.points,
+      incentive_level: req.body.incentive_level,
       rating: req.body.rating,
     });
 
@@ -52,7 +57,7 @@ export const getLSP = async (req, res) => {
 export const fetchLSP = async (req, res) => {
   try {
     const lawyer = await Lawyer.findById(req.params.id);
-    
+
     res.status(200).json(lawyer);
   } catch (error) {
     res.status(500).json(error);
@@ -62,9 +67,27 @@ export const fetchLSP = async (req, res) => {
 export const altPoints = async (req, res) => {
   try {
     const lawyer = await Lawyer.findById(req.body.lawyerId);
-    lawyer.points = lawyer.points + req.body.points
-    lawyer.save().then(()=>{console.log("sucessfully altered")})
+    lawyer.points = lawyer.points + req.body.points;
+    lawyer.save().then(() => {
+      console.log("sucessfully altered");
+    });
   } catch (error) {
     res.status(500).json(error);
   }
 };
+
+
+
+//for inserting fake data
+// export const fakeLSP = async (req, res) => {
+    
+//   const lawyerData=[]
+  
+ 
+//   try {
+//     await Lawyer.insertMany(lawyerData);
+//     res.status(200).json({"mesg":"done"});
+//   } catch (error) {
+//     res.status(500).json(error);
+//   }
+// };

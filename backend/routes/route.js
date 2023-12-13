@@ -54,4 +54,6 @@ Router.get("/ranks", updateLeaderboard);
 //get the leaderboard rankings
 Router.get("/leaderboard", getLeaderboard);
 
+
+
 export default Router;

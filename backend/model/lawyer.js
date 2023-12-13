@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 
 const lawyerSchema = mongoose.Schema(
   {
+    username:{
+      type:String,
+      require:true
+    },
     name: {
       type: String,
       require: true,
@@ -77,6 +81,9 @@ const lawyerSchema = mongoose.Schema(
     points: {
       type: Number,
     },
+    //calculate the incentive level based on the number of points
+    //MongoDB itself doesn't have built-in support for dynamic 
+    //field values based on conditions; such logic is usually handled at the application level.
     incentive_level:{
        type:String,
        enum: [
