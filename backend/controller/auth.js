@@ -19,7 +19,7 @@ export const login = async (req, res) => {
       },
       process.env.JWT_KEY,
       {
-        expiresIn: "1h",
+        expiresIn: "2d",
       }
     );
     console.log(user);
