@@ -19,6 +19,7 @@ export const addDocWriter = async (req, res) => {
       points: req.body.points,
       incentive_level: req.body.incentive_level,
       rating: req.body.rating,
+      document_url:req.body.document_url
     });
 
     await docWriter
