@@ -1,20 +1,21 @@
-import Lawyer from "../model/lawyer.js";
-import fs from "fs"
+import Notary from "../model/notary.js";
 
-export const addLSP = async (req, res) => {
+export const addNotary = async (req, res) => {
   try {
-    const lawyer = await new Lawyer({
+    const notary = await new Notary({
       username: req.body.username,
       name: req.body.name,
       email: req.userData.email,
       aadhar: req.body.aadhar,
       profile_pic: req.body.profile_pic,
       serial_no: req.body.serial_no,
-      enrollment_no: req.body.enrollment_no,
+      bar_association_reg_no: req.body.bar_association_reg_no,
       gender: req.body.gender,
       age: req.body.age,
       summary: req.body.summary,
-      category: req.body.category,
+      commission_no: req.body.commission_no,
+      commission_expiry: req.body.commission_expiry,
+      jurisdiction_covered: req.body.jurisdiction_covered,
       experience: req.body.experience,
       location: req.body.location,
       availability: req.body.availability,
@@ -25,12 +26,12 @@ export const addLSP = async (req, res) => {
       rating: req.body.rating,
     });
 
-    await lawyer
+    await notary
       .save()
       .then(() => {
         res.status(200).json({
           message: "successfully registered",
-          details: lawyer,
+          details: notary,
         });
       })
       .catch((err) => {
@@ -45,32 +46,20 @@ export const addLSP = async (req, res) => {
   }
 };
 
-export const getLSP = async (req, res) => {
+export const getNotaries = async (req, res) => {
   try {
-    const lawyers = await Lawyer.find();
-    res.status(200).send(lawyers);
+    const notaries = await Notary.find();
+    res.status(200).send(notaries);
   } catch (error) {
     res.status(500).json(error);
   }
 };
 
-export const fetchLSP = async (req, res) => {
+export const fetchNotary = async (req, res) => {
   try {
-    const lawyer = await Lawyer.findById(req.params.id);
+    const notary = await Notary.findById(req.params.id);
 
-    res.status(200).json(lawyer);
-  } catch (error) {
-    res.status(500).json(error);
-  }
-};
-
-export const altPoints = async (req, res) => {
-  try {
-    const lawyer = await Lawyer.findById(req.body.lawyerId);
-    lawyer.points = lawyer.points + req.body.points;
-    lawyer.save().then(() => {
-      console.log("sucessfully altered");
-    });
+    res.status(200).json(notary);
   } catch (error) {
     res.status(500).json(error);
   }
@@ -78,16 +67,4 @@ export const altPoints = async (req, res) => {
 
 
 
-//for inserting fake data
-// export const fakeLSP = async (req, res) => {
-    
-//   const lawyerData=[]
-  
- 
-//   try {
-//     await Lawyer.insertMany(lawyerData);
-//     res.status(200).json({"mesg":"done"});
-//   } catch (error) {
-//     res.status(500).json(error);
-//   }
-// };
+

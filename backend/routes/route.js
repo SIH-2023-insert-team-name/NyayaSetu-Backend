@@ -2,11 +2,11 @@ import express from "express";
 import checkAuth from "../middleware/auth_user.js";
 import { login, register } from "../controller/auth.js";
 import {
-  addLSP,
-  getLSP,
-  fetchLSP,
+  addLawyer,
+  getLawyers,
+  fetchLawyer,
   altPoints,
-} from "../controller/lsp-controller.js";
+} from "../controller/lawyer-controller.js";
 import { addClient } from "../controller/client-controller.js";
 import { addReview, getAllReviews } from "../controller/review-controller.js";
 import { checkConnection } from "../controller/connection-controller.js";
@@ -15,6 +15,8 @@ import {
   updateLeaderboard,
   getLeaderboard,
 } from "../controller/leaderboard-controller.js";
+import { addDocWriter, fetchDocWriter, getDocWriters } from "../controller/document-writer-controller.js";
+import { addNotary, fetchNotary, getNotaries } from "../controller/notary-controller.js";
 
 const Router = express.Router();
 
@@ -27,14 +29,33 @@ Router.post("/authenticate", login);
 // Register
 Router.post("/register", register);
 
-// add Legal Service Provider LSP
-Router.post("/add/lsp", checkAuth, addLSP);
+// add lawyer LSP
+Router.post("/add/lawyer", checkAuth, addLawyer);
 
-//get all legal service providers
-Router.get("/get/lsp", getLSP);
 
-//get details of a particular lsp
-Router.get("/get/lsp/:id", fetchLSP);
+//get all lawyers
+Router.get("/get/lawyers", getLawyers);
+
+//get details of a particular lawyer
+Router.get("/get/lawyer/:id", fetchLawyer);
+
+// add document-writer LSP
+Router.post("/add/docwriter", checkAuth, addDocWriter);
+
+//get all document writers
+Router.get("/get/docwriters", getDocWriters);
+
+//get details of a particular document writer
+Router.get("/get/docwriter/:id", fetchDocWriter);
+
+// add notary LSP
+Router.post("/add/notary", checkAuth, addNotary);
+
+//get all notaries
+Router.get("/get/notaries", getNotaries);
+
+//get details of a particular notary
+Router.get("/get/notary/:id", fetchNotary);
 
 //add client
 Router.post("/add/client", checkAuth, addClient);

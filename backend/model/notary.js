@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const lawyerSchema = mongoose.Schema(
+const notarySchema = mongoose.Schema(
   {
     username:{
       type:String,
@@ -39,22 +39,14 @@ const lawyerSchema = mongoose.Schema(
     summary: {
       type: String,
     },
-    category: {
-      type: String,
-      enum: [
-        "bankruptcy",
-        "business",
-        "constitutional",
-        "criminal defense",
-        "employment and labour",
-        "entertainment",
-        "estate planning",
-        "family",
-        "immigration",
-        "intellectual property",
-        "personal injury",
-        "tax",
-      ],
+    commission_no:{
+        type: String
+    },
+    commission_expiry:{
+       type:String
+    },
+    jurisdiction_covered: {
+      type: String
     },
 
     experience: {
@@ -107,5 +99,5 @@ const lawyerSchema = mongoose.Schema(
   }
 );
 
-const Lawyer = mongoose.model("lawyer", lawyerSchema);
-export default Lawyer;
+const Notary = mongoose.model("notary", notarySchema);
+export default Notary;

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const lawyerSchema = mongoose.Schema(
+const documentWriterSchema = mongoose.Schema(
   {
     username:{
       type:String,
@@ -23,12 +23,6 @@ const lawyerSchema = mongoose.Schema(
     profile_pic: {
       type: String,
     },
-    serial_no: {
-      type: Number,
-    },
-    bar_association_reg_no: {
-      type: String,
-    },
     gender: {
       type: String,
       enum: ["male", "female", "other"],
@@ -39,23 +33,23 @@ const lawyerSchema = mongoose.Schema(
     summary: {
       type: String,
     },
-    category: {
-      type: String,
-      enum: [
-        "bankruptcy",
-        "business",
-        "constitutional",
-        "criminal defense",
-        "employment and labour",
-        "entertainment",
-        "estate planning",
-        "family",
-        "immigration",
-        "intellectual property",
-        "personal injury",
-        "tax",
-      ],
-    },
+    // category: {
+    //   type: String,
+    //   enum: [
+    //     "bankruptcy",
+    //     "business",
+    //     "constitutional",
+    //     "criminal defense",
+    //     "employment and labour",
+    //     "entertainment",
+    //     "estate planning",
+    //     "family",
+    //     "immigration",
+    //     "intellectual property",
+    //     "personal injury",
+    //     "tax",
+    //   ],
+    // },
 
     experience: {
       type: Number,
@@ -107,5 +101,5 @@ const lawyerSchema = mongoose.Schema(
   }
 );
 
-const Lawyer = mongoose.model("lawyer", lawyerSchema);
-export default Lawyer;
+const DocumentWriter = mongoose.model("documentwriter", documentWriterSchema);
+export default DocumentWriter;
