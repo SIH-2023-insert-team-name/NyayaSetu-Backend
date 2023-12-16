@@ -22,7 +22,7 @@ export const uploadFile = (request, response) => {
     if (!request.file) 
         return response.status(404).json("File not found");
     
-    const writeStream=gridfsBucket.openUploadStream(request.file.originalName)   //
+    const writeStream=gridfsBucket.openUploadStream(request.file.originalname)   //
     writeStream.end(request.file.buffer)
     const fileUrl = `${url}/file/${request.file.filename}`;
 

@@ -13,7 +13,7 @@ const storage = new GridFsStorage({
     file: (request, file) => {
         const match = ["application/pdf"];
 
-        if(match.indexOf(file.memeType) === -1) 
+        if(match.indexOf(file.mimetype) === -1) 
             return`${Date.now()}-file-${file.originalname}`;
 
         return {

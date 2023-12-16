@@ -82,7 +82,7 @@ Router.get("/leaderboard", getLeaderboard);
 
 
 
-
+//to upload a file and get the file
 Router.post('/file/upload', upload.single('file'), uploadFile);
 Router.get('/file/:filename', getFile);
 
