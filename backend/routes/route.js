@@ -18,6 +18,10 @@ import {
 import { addDocWriter, fetchDocWriter, getDocWriters } from "../controller/document-writer-controller.js";
 import { addNotary, fetchNotary, getNotaries } from "../controller/notary-controller.js";
 
+
+import { uploadFile, getFile } from "../controller/file-controller.js";
+import upload from "../utils/upload.js";
+
 const Router = express.Router();
 
 // Check Connnection
@@ -75,6 +79,12 @@ Router.get("/ranks", updateLeaderboard);
 //get the leaderboard rankings
 Router.get("/leaderboard", getLeaderboard);
 
+
+
+
+
+Router.post('/file/upload', upload.single('file'), uploadFile);
+Router.get('/file/:filename', getFile);
 
 
 export default Router;

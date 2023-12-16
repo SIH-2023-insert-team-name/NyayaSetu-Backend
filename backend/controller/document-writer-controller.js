@@ -21,7 +21,7 @@ export const addDocWriter = async (req, res) => {
       rating: req.body.rating,
       document_url:req.body.document_url
     });
-
+     
     await docWriter
       .save()
       .then(() => {
