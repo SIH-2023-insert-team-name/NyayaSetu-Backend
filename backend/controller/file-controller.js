@@ -2,7 +2,7 @@ import grid from 'gridfs-stream';
 import mongoose from 'mongoose';
 // import multer from 'multer';
 
-const url = 'https://nyayasetu-backend.onrender.com/';
+const url = 'https://nyayasetu.com';
 
 // Multer setup for handling file uploads
 // const storage = multer.memoryStorage();
