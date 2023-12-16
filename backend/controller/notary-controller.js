@@ -3,12 +3,12 @@ import Notary from "../model/notary.js";
 export const addNotary = async (req, res) => {
   try {
     const notary = await new Notary({
-      username: req.body.username,
+    
       name: req.body.name,
-      email: req.userData.email,
+   
       aadhar: req.body.aadhar,
       profile_pic: req.body.profile_pic,
-      serial_no: req.body.serial_no,
+      
       bar_association_reg_no: req.body.bar_association_reg_no,
       gender: req.body.gender,
       age: req.body.age,

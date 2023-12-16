@@ -2,19 +2,12 @@ import mongoose from "mongoose";
 
 const documentWriterSchema = mongoose.Schema(
   {
-    username:{
-      type:String,
-      require:true
-    },
+   
     name: {
       type: String,
       require: true,
     },
-    email: {
-      type: String,
-      require: true,
-      unique: true,
-    },
+    
     aadhar: {
       type: String,
       require: true,

@@ -3,9 +3,9 @@ import DocumentWriter from "../model/document-writer.js";
 export const addDocWriter = async (req, res) => {
   try {
     const docWriter = await new DocumentWriter({
-      username: req.body.username,
+     
       name: req.body.name,
-      email: req.userData.email,
+     
       aadhar: req.body.aadhar,
       profile_pic: req.body.profile_pic,
       gender: req.body.gender,

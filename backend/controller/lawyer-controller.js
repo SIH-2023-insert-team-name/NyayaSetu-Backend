@@ -5,12 +5,9 @@ export const addLawyer = async (req, res) => {
   try {
     console.log(req.body)
     const lawyer = await new Lawyer({
-      username: req.body.username,
       name: req.body.name,
-      email: req.userData.email,
       aadhar: req.body.aadhar,
       profile_pic: req.body.profile_pic,
-      serial_no: req.body.serial_no,
       bar_association_reg_no: req.body.bar_association_reg_no,
       gender: req.body.gender,
       age: req.body.age,
@@ -80,11 +77,11 @@ export const altPoints = async (req, res) => {
 
 
 
-//for inserting fake data
+// for inserting fake data
 // export const fakeLSP = async (req, res) => {
     
 //   const lawyerData=[
-  
+   
 //   ]
   
  

@@ -2,19 +2,12 @@ import mongoose from "mongoose";
 
 const notarySchema = mongoose.Schema(
   {
-    username:{
-      type:String,
-      require:true
-    },
+   
     name: {
       type: String,
       require: true,
     },
-    email: {
-      type: String,
-      require: true,
-      unique: true,
-    },
+    
     aadhar: {
       type: String,
       require: true,
@@ -23,9 +16,7 @@ const notarySchema = mongoose.Schema(
     profile_pic: {
       type: String,
     },
-    serial_no: {
-      type: Number,
-    },
+   
     bar_association_reg_no: {
       type: String,
     },
