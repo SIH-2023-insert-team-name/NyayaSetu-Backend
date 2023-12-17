@@ -24,7 +24,7 @@ const caseSchema = mongoose.Schema(
     },
     status: 
     { type: String, 
-    enum: ['Pending', 'Accepted', 'Rejected'], default: 'Pending'
+    enum: ['Pending', 'Accepted', 'Rejected','Closed'], default: 'Pending'
      },
   },
   {
