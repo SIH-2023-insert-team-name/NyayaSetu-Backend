@@ -21,6 +21,7 @@ import { addNotary, fetchNotary, getNotaries } from "../controller/notary-contro
 
 import { uploadFile, getFile } from "../controller/file-controller.js";
 import upload from "../utils/upload.js";
+import { acceptCase, addCase, fetchCase, getCases, rejectCase } from "../controller/case-controller.js";
 
 const Router = express.Router();
 
@@ -79,7 +80,20 @@ Router.get("/ranks", updateLeaderboard);
 //get the leaderboard rankings
 Router.get("/leaderboard", getLeaderboard);
 
+//to add a new case (when client sends the request to lawyer)
+Router.post("/addcase",checkAuth,addCase)
 
+//to get all the cases 
+Router.get("/getcases",getCases)
+
+//to fetch the details of a particular case
+Router.get("/get/case/:id",fetchCase)
+
+//to accept the case
+Router.post("/accept/:id",acceptCase)
+
+//to reject the case
+Router.post("/reject/:id",rejectCase)
 
 
 //to upload a file and get the file
