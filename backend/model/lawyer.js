@@ -64,7 +64,7 @@ const lawyerSchema = mongoose.Schema(
       ],
     },
     languages_spoken:{
-        type:Array
+        type:String
     },
     cost: {
       type: Number,
