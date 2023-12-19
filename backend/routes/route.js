@@ -95,6 +95,9 @@ Router.post("/accept/:id",acceptCase)
 //to reject the case
 Router.post("/reject/:id",rejectCase)
 
+//to close the case
+Router.post("/close/:id",rejectCase)
+
 
 //to upload a file and get the file
 Router.post('/file/upload', upload.single('file'), uploadFile);

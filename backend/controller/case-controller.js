@@ -85,3 +85,19 @@ export const rejectCase=async(req,res)=>{
 
 
 
+export const closeCase=async(req,res)=>{
+  const query = { _id: req.params.id }; 
+
+  // Update operation
+  const update = { $set: { status: "Closed" } };
+
+  try {
+    const result = await Case.updateOne(query, update);
+
+    res.status(200).json({"message":`Matched ${result.matchedCount} document(s) and modified ${result.modifiedCount} document(s)`});
+  } catch (error) {
+      res.status(500).json(error);
+  }
+}
+
+
