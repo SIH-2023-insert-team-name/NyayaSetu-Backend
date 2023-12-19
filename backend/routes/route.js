@@ -22,6 +22,7 @@ import { addNotary, fetchNotary, getNotaries,altPointsNotary } from "../controll
 import { uploadFile, getFile } from "../controller/file-controller.js";
 import upload from "../utils/upload.js";
 import { acceptCase, addCase, fetchCase, getCases, rejectCase } from "../controller/case-controller.js";
+import { addChat, fetchChat } from "../controller/chat-controller.js";
 
 const Router = express.Router();
 
@@ -114,5 +115,11 @@ Router.post("/close/:id",rejectCase)
 Router.post('/file/upload', upload.single('file'), uploadFile);
 Router.get('/file/:filename', getFile);
 
+
+//to add a chat
+Router.post("/addchat",addChat)
+
+//to fetch the response
+Router.get("/getchat",fetchChat)
 
 export default Router;

@@ -4,7 +4,7 @@ import User from "../model/user.js";
 
 export const addLawyer = async (req, res) => {
   try {
-    console.log(req.body);
+   
     const lawyer = await new Lawyer({
       name: req.body.name,
       email: req.userData.email,
