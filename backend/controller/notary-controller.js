@@ -65,6 +65,33 @@ export const fetchNotary = async (req, res) => {
   }
 };
 
+export const altPointsNotary = async (req, res) => {
+  try {
+    const notaryId = req.body.notaryId;
+
+
+    
+    const notary = await Notary.findById(notaryId);
+
+    // Validate if the lawyer is found
+    if (!notary) {
+      return res.status(404).json({ message: 'Notary not found' });
+    }
+
+    // Update the points
+    const updatedPoints = notary.points + 100;
+
+    // Update the lawyer document
+    const result = await Notary.updateOne({ _id: notaryId }, { $set: { points: updatedPoints } });
+
+    res.status(200).json({
+      message: `Matched ${result.matchedCount} document(s) and modified ${result.modifiedCount} document(s)`,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
 
 
 
