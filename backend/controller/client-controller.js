@@ -1,6 +1,22 @@
 import Client from "../model/client.js";
 
 export const addClient = async (req, res) => {
+
+
+
+  const existingUser = await Client.findOne({
+    $or: [
+      { email: req.body.email },
+      { username: req.body.username },
+    ],
+  });
+
+  if (existingUser) {
+    // User with the given email or username already exists
+    return res.status(400).json({
+      message: "User with the provided email or username already exists.",
+    });
+  }
   try {
     const client = await new Client({
       name: req.body.name,
