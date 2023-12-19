@@ -66,7 +66,7 @@ export const fetchLawyer = async (req, res) => {
 export const altPoints = async (req, res) => {
   try {
     const lawyer = await Lawyer.findById(req.body.lawyerId);
-    lawyer.points = lawyer.points + req.body.points;
+    lawyer.points = lawyer.points + 200;
     lawyer.save().then(() => {
       console.log("sucessfully altered");
     });
