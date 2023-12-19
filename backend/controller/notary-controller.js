@@ -5,7 +5,7 @@ export const addNotary = async (req, res) => {
     const notary = await new Notary({
     
       name: req.body.name,
-   
+      // email: req.userData.email,
       aadhar: req.body.aadhar,
       profile_pic: req.body.profile_pic,
       email: req.userData.email,
