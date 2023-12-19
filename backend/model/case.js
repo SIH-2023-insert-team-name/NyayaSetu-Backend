@@ -9,6 +9,9 @@ const caseSchema = mongoose.Schema(
     description: {
       type: String,
     },
+    parties_involved:{
+       type:String
+    },
     lawyer_email: {
       type: String,
      
