@@ -2,12 +2,13 @@ import mongoose from "mongoose";
 
 const lawyerSchema = mongoose.Schema(
   {
-   
     name: {
       type: String,
       require: true,
     },
-    
+    email: {
+      type: String,
+    },
     aadhar: {
       type: String,
       require: true,
@@ -16,7 +17,7 @@ const lawyerSchema = mongoose.Schema(
     profile_pic: {
       type: String,
     },
-    
+
     bar_association_reg_no: {
       type: String,
     },
@@ -51,20 +52,16 @@ const lawyerSchema = mongoose.Schema(
     experience: {
       type: Number,
     },
-    location:{
-       type:String,
-       require:true
+    location: {
+      type: String,
+      require: true,
     },
-    availability:{
-       type:String,
-       enum: [
-        "Part-time",
-        "Full-time",
-        
-      ],
+    availability: {
+      type: String,
+      enum: ["Part-time", "Full-time"],
     },
-    languages_spoken:{
-        type:String
+    languages_spoken: {
+      type: String,
     },
     cost: {
       type: Number,
@@ -73,25 +70,18 @@ const lawyerSchema = mongoose.Schema(
       type: Number,
     },
     //calculate the incentive level based on the number of points
-    //MongoDB itself doesn't have built-in support for dynamic 
+    //MongoDB itself doesn't have built-in support for dynamic
     //field values based on conditions; such logic is usually handled at the application level.
-    incentive_level:{
-       type:String,
-       enum: [
-        "not applicable",
-        "silver",
-        "gold",
-        "platinum",
-        "premium"
-        
-      ],
+    incentive_level: {
+      type: String,
+      enum: ["not applicable", "silver", "gold", "platinum", "premium"],
     },
     rating: {
       type: Number,
     },
-    document_url:{
-      type:String
-    }
+    document_url: {
+      type: String,
+    },
   },
   {
     timestamps: true,

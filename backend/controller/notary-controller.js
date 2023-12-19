@@ -8,7 +8,7 @@ export const addNotary = async (req, res) => {
    
       aadhar: req.body.aadhar,
       profile_pic: req.body.profile_pic,
-      
+      email: req.userData.email,
       bar_association_reg_no: req.body.bar_association_reg_no,
       gender: req.body.gender,
       age: req.body.age,

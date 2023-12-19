@@ -23,10 +23,12 @@ export const login = async (req, res) => {
       }
     );
     console.log(user);
+    const isOnboard = user.isOnboarded
     return res.status(200).json({
       message: "Auth successful",
       isLSP: user.isLSP,
       token: token,
+      isOnboard: isOnboard
     });
   } catch (error) {
     console.log(error);
@@ -44,7 +46,6 @@ export const register = async (req, res) => {
     password: req.body.password,
     isLSP: req.body.isLSP,
   });
-  
 
   const existingUser = await User.findOne({
     $or: [{ username: req.body.username }, { email: req.body.email }],
@@ -53,7 +54,7 @@ export const register = async (req, res) => {
   if (existingUser) {
     // Notary with the given username or email already exists
     return res.status(400).json({
-      message: 'User already exists with the provided username or email',
+      message: "User already exists with the provided username or email",
     });
   }
   await user

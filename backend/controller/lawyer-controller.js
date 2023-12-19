@@ -1,11 +1,13 @@
 import Lawyer from "../model/lawyer.js";
-import fs from "fs"
+import fs from "fs";
+import User from "../model/user.js";
 
 export const addLawyer = async (req, res) => {
   try {
-    console.log(req.body)
+    console.log(req.body);
     const lawyer = await new Lawyer({
       name: req.body.name,
+      email: req.userData.email,
       aadhar: req.body.aadhar,
       profile_pic: req.body.profile_pic,
       bar_association_reg_no: req.body.bar_association_reg_no,
@@ -21,12 +23,16 @@ export const addLawyer = async (req, res) => {
       points: req.body.points,
       incentive_level: req.body.incentive_level,
       rating: req.body.rating,
-      document_url: req.body.document_url
+      document_url: req.body.document_url,
     });
 
     await lawyer
       .save()
-      .then(() => {
+      .then(async () => {
+        await User.updateOne(
+          { email: req.userData.email },
+          { $set: { isOnboarded: true } }
+        );
         res.status(200).json({
           message: "successfully registered",
           details: lawyer,
@@ -75,16 +81,13 @@ export const altPoints = async (req, res) => {
   }
 };
 
-
-
 // for inserting fake data
 // export const fakeLSP = async (req, res) => {
-    
+
 //   const lawyerData=[
-   
+
 //   ]
-  
- 
+
 //   try {
 //     await Lawyer.insertMany(lawyerData);
 //     res.status(200).json({"mesg":"done"});
