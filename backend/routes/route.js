@@ -5,7 +5,8 @@ import {
   addLawyer,
   getLawyers,
   fetchLawyer,
-  altPointsLawyer
+  altPointsLawyer,
+  getSortedLawyers
 } from "../controller/lawyer-controller.js";
 import { addClient } from "../controller/client-controller.js";
 import { addReview, getAllReviews } from "../controller/review-controller.js";
@@ -41,6 +42,9 @@ Router.post("/add/lawyer", checkAuth, addLawyer);
 
 //get all lawyers
 Router.get("/get/lawyers", getLawyers);
+
+//get sorted lawyers
+Router.get("/sorted",getSortedLawyers)
 
 //get details of a particular lawyer
 Router.get("/get/lawyer/:id", fetchLawyer);
