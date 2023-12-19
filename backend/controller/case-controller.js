@@ -7,10 +7,11 @@ export const addCase = async (req, res) => {
       title: req.body.title,
    
       description: req.body.description,
+      parties_involved:req.body.parties_involved,
       lsp_email: req.body.lsp_email,
       
       client_email: req.body.client_email,
-      client_mobile: req.body.client_mobile,
+    
       
     });
 
@@ -103,5 +104,3 @@ export const closeCase=async(req,res)=>{
       res.status(500).json(error);
   }
 }
-
-
