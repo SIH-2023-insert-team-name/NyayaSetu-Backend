@@ -5,7 +5,7 @@ import {
   addLawyer,
   getLawyers,
   fetchLawyer,
-  altPoints,
+  altPointsLawyer
 } from "../controller/lawyer-controller.js";
 import { addClient } from "../controller/client-controller.js";
 import { addReview, getAllReviews } from "../controller/review-controller.js";
@@ -15,8 +15,8 @@ import {
   updateLeaderboard,
   getLeaderboard,
 } from "../controller/leaderboard-controller.js";
-import { addDocWriter, fetchDocWriter, getDocWriters } from "../controller/document-writer-controller.js";
-import { addNotary, fetchNotary, getNotaries } from "../controller/notary-controller.js";
+import { addDocWriter, fetchDocWriter, getDocWriters,altPointsDocWriter } from "../controller/document-writer-controller.js";
+import { addNotary, fetchNotary, getNotaries,altPointsNotary } from "../controller/notary-controller.js";
 
 
 import { uploadFile, getFile } from "../controller/file-controller.js";
@@ -71,8 +71,16 @@ Router.post("/add/review", checkAuth, addReview);
 //get all reviews
 Router.get("/get/reviews", checkAuth, getAllReviews);
 
-// Post increase points
-Router.post("/alt/points", altPoints);
+// Post increase points for lawyer
+Router.post("/alt/lawyer/points", altPointsLawyer);
+
+// Post increase points for notary
+Router.post("/alt/notary/points", altPointsNotary);
+
+
+// Post increase points for docwriter
+Router.post("/alt/docwriter/points", altPointsDocWriter);
+
 
 //get updated leaderboard wrt descending order of points
 Router.get("/ranks", updateLeaderboard);

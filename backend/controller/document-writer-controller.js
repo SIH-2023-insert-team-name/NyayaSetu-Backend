@@ -62,5 +62,34 @@ export const fetchDocWriter = async (req, res) => {
 };
 
 
+export const altPointsDocWriter = async (req, res) => {
+  try {
+    const docId = req.body.docWriterId;
+
+
+    
+    const docWriter = await DocumentWriter.findById(docId);
+
+    // Validate if the lawyer is found
+    if (!docWriter) {
+      return res.status(404).json({ message: 'Document writer not found' });
+    }
+
+    // Update the points
+    const updatedPoints = docWriter.points + 50;
+
+    // Update the lawyer document
+    const result = await DocumentWriter.updateOne({ _id: docId }, { $set: { points: updatedPoints } });
+
+    res.status(200).json({
+      message: `Matched ${result.matchedCount} document(s) and modified ${result.modifiedCount} document(s)`,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
+
+
 
 
