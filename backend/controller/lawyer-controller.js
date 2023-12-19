@@ -69,31 +69,41 @@ export const fetchLawyer = async (req, res) => {
   }
 };
 
+export const getSpecLawyer = async (req, res) => {
+  try {
+    const lawyer = await Lawyer.find({category: req.params("spec")})
+    res.status(200).json(lawyer)
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
 export const altPointsLawyer = async (req, res) => {
   try {
     const lawyerId = req.body.lawyerId;
 
-
-    
     const lawyer = await Lawyer.findById(lawyerId);
 
     // Validate if the lawyer is found
     if (!lawyer) {
-      return res.status(404).json({ message: 'Lawyer not found' });
+      return res.status(404).json({ message: "Lawyer not found" });
     }
 
     // Update the points
     const updatedPoints = lawyer.points + 200;
 
     // Update the lawyer document
-    const result = await Lawyer.updateOne({ _id: lawyerId }, { $set: { points: updatedPoints } });
+    const result = await Lawyer.updateOne(
+      { _id: lawyerId },
+      { $set: { points: updatedPoints } }
+    );
 
     res.status(200).json({
       message: `Matched ${result.matchedCount} document(s) and modified ${result.modifiedCount} document(s)`,
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Internal Server Error' });
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };
 
