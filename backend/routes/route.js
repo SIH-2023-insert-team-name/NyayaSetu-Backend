@@ -114,9 +114,9 @@ Router.get('/file/:filename', getFile);
 
 
 //to add a chat
-Router.post("/addchat",addChat)
+Router.post("/addchat",checkAuth,addChat)
 
 //to fetch the response
-Router.get("/getchat",fetchChat)
+Router.get("/getchat",checkAuth,fetchChat)
 
 export default Router;
