@@ -6,6 +6,7 @@ import {
   getLawyers,
   fetchLawyer,
   altPointsLawyer,
+  getSpecLawyer,
   getSortedLawyers
 } from "../controller/lawyer-controller.js";
 import { addClient } from "../controller/client-controller.js";
@@ -18,7 +19,6 @@ import {
 } from "../controller/leaderboard-controller.js";
 import { addDocWriter, fetchDocWriter, getDocWriters,altPointsDocWriter } from "../controller/document-writer-controller.js";
 import { addNotary, fetchNotary, getNotaries,altPointsNotary } from "../controller/notary-controller.js";
-
 
 import { uploadFile, getFile } from "../controller/file-controller.js";
 import upload from "../utils/upload.js";
@@ -49,6 +49,9 @@ Router.get("/sorted",getSortedLawyers)
 
 //get details of a particular lawyer
 Router.get("/get/lawyer/:id", fetchLawyer);
+
+// get list of lawyers with a particular specialization
+Router.get("/get/lawyer/:spec", getSpecLawyer);
 
 // add document-writer LSP
 Router.post("/add/docwriter", checkAuth, addDocWriter);
