@@ -7,10 +7,11 @@ export const addCase = async (req, res) => {
       title: req.body.title,
    
       description: req.body.description,
-      lawyer_email: req.body.lawyer_email,
+      parties_involved:req.body.parties_involved,
+      lsp_email: req.body.lsp_email,
       
       client_email: req.body.client_email,
-      client_mobile: req.body.client_mobile,
+    
       
     });
 
@@ -35,13 +36,17 @@ export const addCase = async (req, res) => {
 };
 
 export const getCases = async (req, res) => {
+  const lsp_email = req.body.email;
+
   try {
-    const cases = await Case.find();
+    // Assuming there is a field 'lsp_email' in your Case schema
+    const cases = await Case.find({ lsp_email: lsp_email });
     res.status(200).send(cases);
   } catch (error) {
     res.status(500).json(error);
   }
 };
+
 
 export const fetchCase = async (req, res) => {
     try {
@@ -99,5 +104,3 @@ export const closeCase=async(req,res)=>{
       res.status(500).json(error);
   }
 }
-
-

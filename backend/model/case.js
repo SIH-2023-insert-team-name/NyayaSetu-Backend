@@ -12,7 +12,7 @@ const caseSchema = mongoose.Schema(
     parties_involved:{
        type:String
     },
-    lawyer_email: {
+    lsp_email: {
       type: String,
      
       
@@ -21,13 +21,10 @@ const caseSchema = mongoose.Schema(
       type: String,
       
     },
-    client_mobile: {
-      type: String,
-      
-    },
+   
     status: 
     { type: String, 
-    enum: ['Pending', 'Accepted', 'Rejected','Closed'], default: 'Pending'
+    enum: ['Pending', 'Accepted', 'Rejected','Closed'], default: 'Accepted'
      },
   },
   {

@@ -7,7 +7,7 @@ export const addDocWriter = async (req, res) => {
     const docWriter = await new DocumentWriter({
      
       name: req.body.name,
-     
+      // email: req.userData.email,
       aadhar: req.body.aadhar,
       profile_pic: req.body.profile_pic,
       gender: req.body.gender,

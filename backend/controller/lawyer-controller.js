@@ -121,3 +121,15 @@ export const altPointsLawyer = async (req, res) => {
 //     res.status(500).json(error);
 //   }
 // };
+
+
+export const getSortedLawyers = async (req, res) => {
+  try {
+    const lawyers = await Lawyer.find()
+    .sort({ experience: -1, points: -1, cost: 1 });
+   
+    res.status(200).send(lawyers);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
