@@ -82,6 +82,11 @@ const lawyerSchema = mongoose.Schema(
     document_url: {
       type: String,
     },
+
+
+
+
+    
   },
   {
     timestamps: true,

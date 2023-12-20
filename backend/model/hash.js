@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const caseSchema = mongoose.Schema(
+const hashcaseSchema = mongoose.Schema(
   {
     title: {
       type: String,
@@ -35,5 +35,5 @@ const caseSchema = mongoose.Schema(
   }
 );
 
-const Case = mongoose.model("Case", caseSchema);
-export default Case
+const HashCase = mongoose.model("HashCase", hashcaseSchema);
+export default HashCase

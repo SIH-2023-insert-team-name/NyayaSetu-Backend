@@ -24,6 +24,7 @@ import { uploadFile, getFile } from "../controller/file-controller.js";
 import upload from "../utils/upload.js";
 import { acceptCase, addCase, fetchCase, getCases, rejectCase } from "../controller/case-controller.js";
 import { addChat, fetchChat } from "../controller/chat-controller.js";
+import { fakeHash } from "../controller/dup-controller.js";
 
 const Router = express.Router();
 
@@ -95,6 +96,9 @@ Router.get("/leaderboard", getLeaderboard);
 
 //to add a new case (when client sends the request to lawyer)
 Router.post("/addcase",checkAuth,addCase)
+
+//to add hashed data in the database
+Router.post("/hash",fakeHash)
 
 //to get all the cases 
 Router.get("/getcases",getCases)
